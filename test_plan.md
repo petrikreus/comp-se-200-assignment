@@ -52,7 +52,7 @@ tests. Finally, a Virtual Machine setup for the testing environment is illustrat
    1. Producer logs in with producer credentials.
    2. Produces adds a new product using a form.
    3. Producer submits the new product.
-   4. Back-end handles the added product and infors if addition was successful.
+   4. Back-end handles the added product and informs if addition was successful.
    5. Produces removes an outdated product.
    6. Back-end handles removal and informs if removal was successful.
 4. New Producer registration:
