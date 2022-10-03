@@ -34,6 +34,35 @@ First, descriptions of end-to-end scenarios are presented. Second, tools for the
 tests. Finally, a Virtual Machine setup for the testing environment is illustrated.
 
 # Scenarios
+1. Customer orders products:
+    1. Customer logs in.
+    2. Customer searches for a product.
+    3. Customer adds the product to the shopping cart.
+    4. Cart updates.
+    5. Customer chooses to buy products in the shopping cart.
+    6. Payment is processed.
+    7. If payment is successful the order is created. Else unsuccessful payment handled.
+2. New Customer registration:
+    1. Customer starts the registration process.
+    2. Customer fills the required user info into a registration form.
+    3. Customer submits the registration form.
+    4. Back-end handles registration and informs customer if registration was successful.
+    5. After successful registration customer can log in.
+3. Producer adds and removes products:
+   1. Producer logs in with producer credentials.
+   2. Produces adds a new product using a form.
+   3. Producer submits the new product.
+   4. Back-end handles the added product and infors if addition was successful.
+   5. Produces removes an outdated product.
+   6. Back-end handles removal and informs if removal was successful.
+4. New Producer registration:
+    1. Producer starts the registration process.
+    2. Producer fills the required user info into a registration form.
+    3. Producer submits the registration form.
+    4. Back-end handles registration and informs customer if registration was successful.
+    5. Registration is now pending admin approval.
+    6. Admin approves the producer registration.
+    7. Producer is able to log in.
 
 > - The descriptions of your end-to-end scenarios.
 > - What components of the E-commerce store will be tested, how and why?
