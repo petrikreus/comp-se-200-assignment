@@ -1,0 +1,44 @@
+sequenceDiagram
+    actor User
+
+    User->>+UI: Log In
+    UI->>+Server: Authentication Request
+    alt if authentication OK
+        Server-->>UI: Authentication OK
+        UI-->>User: Logged In Notification
+    else else
+        Server-->>-UI: Authentication Failed
+        UI-->>User: Log In Failed Notification
+    end
+
+    User->>UI: Search
+    UI->>+Server: Search Request
+    alt if search request is valid
+        Server-->>UI: Search Result Collection
+        UI->>UI: Map Result Collection For Display
+        UI-->>User: Display Results
+    else else
+        Server-->>-UI: Error
+        UI-->>User: Display Error
+    end
+
+    User->>UI: Add Product To Cart
+    UI->>UI: Update Cart Products And Prices
+    UI-->>User: Display Notification
+
+    User->>UI: View Cart
+    UI-->>User: Display Cart
+
+    User->>UI: Checkout
+    UI->>+Server: Checkout (Cart & Payment Details)
+    Server->>+PaymentService: Payment
+    PaymentService-->>-Server: Payment Result
+
+
+    alt if payment is successful
+        Server-->>UI: Order Successful
+        UI-->>User: Order Successful Notification
+    else else
+        Server-->>-UI: Payment Failed
+        UI-->>-User: Payment Failed Notification
+    end

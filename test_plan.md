@@ -27,42 +27,13 @@
 > - What is in the document?
 > - What is the purpose of the document?
 
-This document describes a test plan for the E-Commerce Store application. The aim is to give a detailed description 
+This document describes a test plan for the E-Commerce Store application. The aim is to give a detailed description
 of the test strategy, test objectives and test deliverables for the project.
 
-First, descriptions of end-to-end scenarios are presented. Second, tools for the testing are defined with the actual 
+First, descriptions of end-to-end scenarios are presented. Second, tools for the testing are defined with the actual
 tests. Finally, a Virtual Machine setup for the testing environment is illustrated.
 
 # Scenarios
-1. Customer orders products:
-    1. Customer logs in.
-    2. Customer searches for a product.
-    3. Customer adds the product to the shopping cart.
-    4. Cart updates.
-    5. Customer chooses to buy products in the shopping cart.
-    6. Payment is processed.
-    7. If payment is successful the order is created. Else unsuccessful payment handled.
-2. New Customer registration:
-    1. Customer starts the registration process.
-    2. Customer fills the required user info into a registration form.
-    3. Customer submits the registration form.
-    4. Back-end handles registration and informs customer if registration was successful.
-    5. After successful registration customer can log in.
-3. Producer adds and removes products:
-   1. Producer logs in with producer credentials.
-   2. Produces adds a new product using a form.
-   3. Producer submits the new product.
-   4. Back-end handles the added product and informs if addition was successful.
-   5. Produces removes an outdated product.
-   6. Back-end handles removal and informs if removal was successful.
-4. New Producer registration:
-    1. Producer starts the registration process.
-    2. Producer fills the required user info into a registration form.
-    3. Producer submits the registration form.
-    4. Back-end handles registration and informs customer if registration was successful.
-    5. Registration is now pending admin approval.
-    6. Admin approves the producer registration.
-    7. Producer is able to log in.
 
 > - The descriptions of your end-to-end scenarios.
 > - What components of the E-commerce store will be tested, how and why?
@@ -73,16 +44,66 @@ tests. Finally, a Virtual Machine setup for the testing environment is illustrat
 > - List the source code files you selected for your unit tests from the provided utility library. Use a prioritization
     method to validate your file selections. Remember your end-to-end scenarios.
 
-## Users
+**S1: Customer orders products**
 
-- Users can search products by category, price, product contents, and producer. 
-- Products can be added to a shopping cart. 
-- Shopping cart automatically updates and shows the total price.
-- Checkout and payment process is handled with a third-party solution.
+1. Customer logs in.
+2. Customer searches for a product.
+3. Customer adds the product to the shopping cart.
+4. Cart updates.
+5. Customer chooses to buy products in the shopping cart.
+6. Payment is processed.
+7. If payment is successful the order is created. Else unsuccessful payment handled.
 
-## Producers 
-- The food producers can add their products via a previously created portal, or by using a front-end application.
-- The producers can leave some fields blank if they do not want to specify some attributes like category or contents.
+**S2: New Customer registration**
+
+1. Customer starts the registration process.
+2. Customer fills the required user info into a registration form.
+3. Customer submits the registration form.
+4. Back-end handles registration and informs customer if registration was successful.
+5. After successful registration customer can log in.
+
+**S3: Producer adds and removes products**
+
+1. Producer logs in with producer credentials.
+2. Producer adds a new product using a form.
+3. Producer submits the new product.
+4. Back-end handles the added product and informs if addition was successful.
+5. Producer removes an outdated product.
+6. Back-end handles removal and informs if removal was successful.
+
+**S4: New Producer registration**
+
+1. Producer starts the registration process.
+2. Producer fills the required user info into a registration form.
+3. Producer submits the registration form.
+4. Back-end handles registration and informs customer if registration was successful.
+5. Registration is now pending admin approval.
+6. Admin approves the producer registration.
+7. Producer is able to log in.
+
+**Source Files**
+
+1. capitalize.js
+    - used when producer saves a new product (S3)
+2. reduce.js
+    - Used when displaying cart prices (S1)
+3. isEmpty.js
+    - Used when checking validity of form fields (S1, S2, S3, S4)
+4. divide.js
+    - Has a critical error in syntax
+    - Maybe used when displaying prices per Kg or similar (S1)
+5. defaultTo.js
+    - Can be used when displaying information that may not have been input (S1, S3)
+6. filter.js
+    - Used when displaying product lists (S1)
+7. words.js
+    - Used when searching products (S1)
+8. toNumber.js
+    - Can be used when saving numeric data from input fields which give string values by default
+9. slice.js
+    - Can be used when removing products from cart
+10. map.js
+    - Can be used when mapping array item (products) into React components (S1)
 
 # Tools
 
@@ -101,8 +122,6 @@ tests. Finally, a Virtual Machine setup for the testing environment is illustrat
 > - When the tests are considered "passed"?
 > - How to guarantee adequate code coverage?
 
-The scope of the testing is limited to unit and integration tests, since access is given only to the utility library. 
-
 # Virtual Machine
 
 > - Optionally, the description of your Virtual Machine setup with screenshots (e.g. of a tool test you are running), if
@@ -111,6 +130,6 @@ The scope of the testing is limited to unit and integration tests, since access 
 # References
 
 > - List of any and all references used in the document. Add URL links in references (as opposed to inline links within
-    > the text).
+    the text).
 
 

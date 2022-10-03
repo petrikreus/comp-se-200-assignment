@@ -1,0 +1,46 @@
+title S1: Customer Orders Products
+
+actor User
+
+User->+Computer: Log In
+Computer->+Server: Authentication Request
+
+alt if authentication OK
+    Server-->Computer: Authentication OK / Cookie
+    Computer-->User: Authentication OK Notification
+else else
+    Server-->-Computer: Authentication Failed
+    Computer-->User: Authentication Failed Notification
+end
+
+User->Computer: Search
+Computer->+Server: Search Request
+alt if search request is valid
+    Server-->Computer: Search Result Collection
+    Computer->Computer: Map Results Collection For Display
+    Computer-->User: Display Results
+else else
+    Server-->-Computer: Error
+    Computer-->User: Display Error
+end
+
+
+User->Computer: Add Product To Cart
+Computer->Computer: Update Cart Products And Prices
+Computer-->User: Display Notification
+
+User->Computer: View Cart
+Computer-->User: Display Cart
+
+User->Computer: Checkout
+Computer->+Server: Checkout (Cart & Payment Details)
+Server->+PaymentService: Payment
+PaymentService-->-Server: Payment Result
+
+alt if payment is successful
+    Server-->Computer: Order Successful
+    Computer-->User: Order Successful Notification
+else else
+    Server-->-Computer: Payment Failed
+    Computer-->-User: Payment Failed Notification
+end
