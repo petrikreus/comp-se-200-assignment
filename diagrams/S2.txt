@@ -1,0 +1,37 @@
+title US2: New Customer registration and Log in
+
+actor User
+
+User->+Computer: Registration Form inputs
+
+alt if Form inputs valid
+  Computer-->Server: Registration request
+  alt if Registration OK
+    Server-->Computer: Registration OK
+    Computer-->User: Registration OK Notification
+  else else
+    Server-->Computer: Registration failed
+    Computer-->User: Registration failed Notification
+  end
+else else
+  Computer-->User: Invalid Form inputs Notification
+end
+
+User->+Computer: Log In
+Computer->+Server: Authentication Request
+
+alt if authentication OK
+    Server-->Computer: Authentication OK / Cookie
+    Computer-->User: Authentication OK Notification
+else else
+    Server-->-Computer: Authentication Failed
+    Computer-->User: Authentication Failed Notification
+end
+
+
+
+
+
+
+
+
