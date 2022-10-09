@@ -81,6 +81,8 @@ tests. Finally, a Virtual Machine setup for the testing environment is illustrat
 6. Admin approves the producer registration.
 7. Producer is able to log in.
 
+**S5: Producer handles a received order (backup scenario option)**
+
 **Source Files**
 
 1. capitalize.js
