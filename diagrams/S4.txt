@@ -1,0 +1,46 @@
+title US4: New Producer registration and Log in
+
+actor User
+
+User->+Computer: Registration Form inputs
+
+alt if Form inputs valid
+  Computer-->+Server: Registration request
+  alt if Registration OK
+    Server-->Admin: New Producer pending approval
+    Server-->Computer: Registration OK
+    Computer-->User: Registration OK Notification
+  else else
+    Server-->Computer: Registration failed
+    Computer-->User: Registration failed Notification
+  end
+else else
+  Computer-->User: Invalid Form inputs Notification
+end
+
+actor Admin
+Admin->Server: Approval decision
+
+User->Computer: Log In
+Computer->Server: Authentication Request
+
+alt if authentication OK
+    Server-->Computer: Authentication OK / Cookie
+    Computer-->User: Authentication OK Notification
+  alt if Producer approved
+    Server-->Computer: Approval OK
+    User->Computer: Producer able to use the site
+  else Pending approval
+    Server-->Computer: Approval pending
+    Computer->User: Pending approval notification
+  else Approval denied
+    Server-->Computer: Approval denied
+    Computer->User: Approval denied notification
+end
+else else
+    Server-->Computer: Authentication Failed
+    Computer-->User: Authentication Failed Notification
+end
+
+
+
