@@ -2,42 +2,37 @@ title US3: Producer adds and removes products
 actor User
 
 User->+Computer: Log In
-Computer->Server: Authentication Request
+Computer->+Server: Authentication Request
 
-alt if authentication OK
+alt if Authentication OK
     Server-->Computer: Authentication OK / Cookie
     Computer-->User: Authentication OK Notification
 else else
-    Server-->Computer: Authentication Failed
+    Server-->-Computer: Authentication Failed
     Computer-->User: Authentication Failed Notification
 end
 
-User->Computer: Add new product Form inputs
+User->Computer: Add New Product Form Inputs
 
-alt if Form inputs valid
-  Computer-->Server: New Product request
-  alt if New Product request OK
-    Server-->Computer: New product added
-    Computer-->User: New product added Notification
+alt if Form Inputs Valid
+  Computer->+Server: New Product Request
+  alt if New Product Request OK
+    Server-->Computer: New Product Added
+    Computer-->User: New Product Added Notification
   else else
-    Server-->Computer: Adding new product failed
-    Computer-->User: Adding new product failed Notification
+    Server-->-Computer: Adding New Product Failed
+    Computer-->User: Adding New Product Failed Notification
   end
 else else
-  Computer-->User: Invalid Form inputs Notification
+  Computer-->User: Invalid Form Inputs Notification
 end
 
-User->Computer: Trigger Delete product
-Computer->Server: Delete product request
-alt if Delete Product request OK
-  Server-->Computer:Product deleted OK
-  Computer-->User: Product deleted OK Notification
+User->Computer: Trigger Delete Product
+Computer->+Server: Delete Product Request
+alt if Delete Product Request OK
+  Server-->Computer:Product Deleted OK
+  Computer-->User: Product Deleted OK Notification
 else else
-  Server-->Computer: Delete product failed
-  Computer-->User: Delete product failed Notification
+  Server-->-Computer: Delete Product Failed
+  Computer-->User: Delete Product Failed Notification
 end
-
-
-
-
-

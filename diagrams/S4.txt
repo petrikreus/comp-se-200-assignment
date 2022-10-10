@@ -1,46 +1,46 @@
 title US4: New Producer registration and Log in
 
 actor User
+participant Computer
+participant Server
+actor Admin
 
-User->+Computer: Registration Form inputs
+User->+Computer: Registration Form Inputs
 
-alt if Form inputs valid
-  Computer-->+Server: Registration request
+alt if Form Inputs Valid
+  Computer->+Server: Registration Request
   alt if Registration OK
-    Server-->Admin: New Producer pending approval
+    Server-->Admin: New Producer Pending Approval
     Server-->Computer: Registration OK
     Computer-->User: Registration OK Notification
   else else
-    Server-->Computer: Registration failed
-    Computer-->User: Registration failed Notification
+    Server-->-Computer: Registration Failed
+    Computer-->User: Registration Failed Notification
   end
 else else
-  Computer-->User: Invalid Form inputs Notification
+  Computer-->User: Invalid Form Inputs Notification
 end
 
-actor Admin
-Admin->Server: Approval decision
+Admin->+Server: Approval Decision
+Server->-Server: Update Producer Approved Status
 
 User->Computer: Log In
-Computer->Server: Authentication Request
+Computer->+Server: Authentication Request
 
 alt if authentication OK
     Server-->Computer: Authentication OK / Cookie
     Computer-->User: Authentication OK Notification
-  alt if Producer approved
+  alt if Producer Approved
     Server-->Computer: Approval OK
-    User->Computer: Producer able to use the site
-  else Pending approval
-    Server-->Computer: Approval pending
-    Computer->User: Pending approval notification
-  else Approval denied
-    Server-->Computer: Approval denied
-    Computer->User: Approval denied notification
+    note right of User: Producer authorized to use\nProducer functionality
+  else else if Approval Denied
+    Server-->Computer: Approval Denied
+    Computer-->User: Approval Denied Notification
+  else else
+    Server-->Computer: Approval Pending
+    Computer-->User: Pending Approval Notification
 end
 else else
-    Server-->Computer: Authentication Failed
+    Server-->-Computer: Authentication Failed
     Computer-->User: Authentication Failed Notification
 end
-
-
-

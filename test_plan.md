@@ -83,6 +83,18 @@ tests. Finally, a Virtual Machine setup for the testing environment is illustrat
 
 **S5: Producer handles a received order (backup scenario option)**
 
+**Components to be tested**
+
+- Product list
+- Shopping cart
+- Search
+- Log in / Registration
+- Product Add Form
+
+**What is not tested**
+
+- TODO
+
 **Source Files**
 
 1. capitalize.js
@@ -112,6 +124,9 @@ tests. Finally, a Virtual Machine setup for the testing environment is illustrat
 > - Description of the chosen tools, packages, libraries, etc. including possible links to web sources (tutorials,
     homepages, etc). Why did you select these tools and how did you test them?
 > - How would the tools be used to test your end-to-end scenarios?
+
+- Jest
+- React Testing Library
 
 # Tests
 

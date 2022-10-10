@@ -5,25 +5,25 @@ actor User
 User->+Computer: Registration Form inputs
 
 alt if Form inputs valid
-  Computer-->Server: Registration request
+  Computer->+Server: Registration Request
   alt if Registration OK
     Server-->Computer: Registration OK
     Computer-->User: Registration OK Notification
   else else
-    Server-->Computer: Registration failed
-    Computer-->User: Registration failed Notification
+    Server-->-Computer: Registration Failed
+    Computer-->User: Registration Failed Notification
   end
 else else
   Computer-->User: Invalid Form inputs Notification
 end
 
 User->Computer: Log In
-Computer->Server: Authentication Request
+Computer->+Server: Authentication Request
 
 alt if authentication OK
     Server-->Computer: Authentication OK / Cookie
     Computer-->User: Authentication OK Notification
 else else
-    Server-->Computer: Authentication Failed
+    Server-->-Computer: Authentication Failed
     Computer-->User: Authentication Failed Notification
 end

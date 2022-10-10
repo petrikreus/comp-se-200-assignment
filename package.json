@@ -1,0 +1,27 @@
+{
+  "name": "comp-se-200-assignment",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/petrikreus/comp-se-200-assignment.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/petrikreus/comp-se-200-assignment/issues"
+  },
+  "homepage": "https://github.com/petrikreus/comp-se-200-assignment#readme",
+  "dependencies": {
+    "software-testing-assignment": "github:otula/COMP.SE.200-2022-2023-1"
+  },
+  "devDependencies": {
+    "jest": "^29.1.2"
+  }
+}
