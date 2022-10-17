@@ -44,6 +44,11 @@ tests. Finally, a Virtual Machine setup for the testing environment is illustrat
 > - List the source code files you selected for your unit tests from the provided utility library. Use a prioritization
     method to validate your file selections. Remember your end-to-end scenarios.
 
+We identified multiple end-to-end scenarios from the application description. The scenarios described here are limited
+to four, since based on our evaluation, those cover the most important features of the application. Two of them are
+related to customer functionality and two to producer functionality. Following figures (Figure 1–4) present these
+scenarios in a form of sequence diagrams.
+
 **S1: Customer orders products**
 
 1. Customer logs in.
@@ -128,6 +133,14 @@ tests. Finally, a Virtual Machine setup for the testing environment is illustrat
 - Jest
 - React Testing Library
 
+We picked [Jest](https://jestjs.io/), a JavaScript testing framework, for unit and integration testing. Since the
+testable file/function count is low, Jest will work well. It works without much additional configuration and is easy to
+use. If the testable amount was higher, a deeper consideration and comparison should be conducted.
+
+The Jest framework was tested by creating a simple test case for the divide function of the provided utility library.
+
+If we had access to the React application, we suggest that React Testing Library was to be used. It is a...
+
 # Tests
 
 > - What kind of tests are to be performed (unit, integration, …), and what is their importance for the end-to-end
@@ -138,6 +151,9 @@ tests. Finally, a Virtual Machine setup for the testing environment is illustrat
     needed.
 > - When the tests are considered "passed"?
 > - How to guarantee adequate code coverage?
+
+- unit tests
+- integration tests
 
 # Virtual Machine
 
