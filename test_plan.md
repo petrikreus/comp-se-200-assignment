@@ -19,7 +19,7 @@
 |||
 |---------|----------------------------|
 | Unit    | A piece of functional code |
-| Another | And its description        |
+| AUT     | Application Under Test     |
 
 # Introduction
 
@@ -44,10 +44,10 @@ tests. Finally, a Virtual Machine setup for the testing environment is illustrat
 > - List the source code files you selected for your unit tests from the provided utility library. Use a prioritization
     method to validate your file selections. Remember your end-to-end scenarios.
 
-We identified multiple end-to-end scenarios from the application description. The scenarios described here are limited
-to four, since based on our evaluation, those cover the most important features of the application. Two of them are
-related to customer functionality and two to producer functionality. Following figures (Figure 1–4) present these
-scenarios in a form of sequence diagrams.
+The testing is designed upon four main end-to-end scenarios identified from the application description. The scenarios
+described here are limited to four, since based on our evaluation, those cover the most important features of the
+application. Two of them are related to customer functionality and two to producer functionality. Following figures 
+(Figure 1–4) present these scenarios in a form of sequence diagrams.
 
 **S1: Customer orders products**
 
@@ -88,19 +88,15 @@ scenarios in a form of sequence diagrams.
 
 **S5: Producer handles a received order (backup scenario option)**
 
-**Components to be tested**
+Based on these scenarios, we recognized five main functional components of the application. These components are
 
-- Product list
-- Shopping cart
-- Search
-- Log in / Registration
-- Product Add Form
+- Log in / Registration (Customer & Producer)
+- Product list (Customer & Producer)
+- Shopping cart (Customer)
+- Search (Customer)
+- Product management (Producer).
 
-**What is not tested**
-
-- TODO
-
-**Source Files**
+## Source Files
 
 1. capitalize.js
     - used when producer saves a new product (S3)
@@ -123,6 +119,19 @@ scenarios in a form of sequence diagrams.
     - Can be used when removing products from cart
 10. map.js
     - Can be used when mapping array item (products) into React components (S1)
+
+## What is not tested
+
+- No usability testing
+  - no access to the application
+- No system testing 
+  - no access to the application
+- No testing of the files in `.internal/` folder
+  - regulated by the specification
+- Test files limited to 10 due to time constraints
+  - regulated by the specification
+- No testing of non-functional requirements
+  - due to the lack of specification
 
 # Tools
 
