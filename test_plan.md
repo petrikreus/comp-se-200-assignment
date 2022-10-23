@@ -203,7 +203,7 @@ Test cases are selected using a mix of **Equivalence partition method** and **li
 | Name | Product search returns items matching search a term |
 | Type| functional test, positive test |
 | Purpose | To test that the user is able to find products by a search term provided by the user |
-| Preconditions | User sees a list of products and gives the application a search string to filter the results |
+| Preconditions | User sees a list of products and gives the application a search string to filter the results (Scenario: S1) |
 | Inputs | A list of products, a search string |
 | Expected Results | A new list only with items matching the search string  |
 | After-conditions | User is able to browse the filtered list and select products for purchase |
@@ -213,7 +213,7 @@ Test cases are selected using a mix of **Equivalence partition method** and **li
 | ID | TCXXX |
 | Name | Product search works when no results are found  |
 | Type| functional test, positive test |
-| Purpose | To test that the application functions when a given search term returns no matching results |
+| Purpose | To test that the application functions when a given search term returns no matching results (Scenario: S1) |
 | Preconditions | User sees a list of products and gives the application a search string to filter the results |
 | Inputs | A list of products, a search string |
 | Expected Results | Empty array i.e. no matching search results |
@@ -226,11 +226,24 @@ Test cases are selected using a mix of **Equivalence partition method** and **li
 | ID | TCXXX |
 | Name | Search input string is divided into individual search words |
 | Type| functional test, positive test |
-| Purpose | To test that the search input string given by a user is divided into search words for poduct filtering |
+| Purpose | To test that the search input string given by a user is divided into search words for poduct filtering (Scenario: S1) |
 | Preconditions | User sees a list of products and gives the application a search string to filter the results |
 | Inputs | A search string, delimiter pattern |
 | Expected Results | Array of substrings from the given search input |
 | After-conditions | Products list is filtered based on invdividual search words |
+
+###  Test cases for map.js
+
+|||
+|---------|----------------------------|
+| ID | TCXXX |
+| Name | Map lists all product objects from an array of products |
+| Type| functional test, positive test |
+| Purpose | To test that products are listed correctly (Scenario: S1)|
+| Preconditions | User navigates to available products page and is displayed a filterable list of items |
+| Inputs | Array of products |
+| Expected Results | The Function goes through the array of products and maps the items as a list |
+| After-conditions | Products list is presented to the user |
 
 # Virtual Machine
 
