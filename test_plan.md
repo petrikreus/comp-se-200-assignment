@@ -164,6 +164,61 @@ If we had access to the React application, we suggest that React Testing Library
 - unit tests
 - integration tests
 
+# Test Cases
+
+The following are short descriptions of designed test cases for the selected functionality. 
+
+###  Test cases for divide.js
+
+Test cases are selected using a mix of **Equivalence partition method** and **limit value analysis**. The **divide** function should perform a simple mathematical division operation and the expected behavior of the operation with given inputs should be quite straightforward. 
+
+|||
+|---------|----------------------------|
+| ID | TCXXX |
+| Name | Display product's price per unit correctly with valid inputs  |
+| Type| Functional test, Positive test |
+| Purpose | To test that the application display product's price per unit of sale correctly when user is searching for products (Scenario: S1) |
+| Preconditions | User is presented with a list of products |
+| Inputs | Positive dividend and positive divisor |
+| Expected Results | Dividend divided by the divisor |
+| After-conditions | Correct price per unit is displayed |
+---
+
+|||
+|---------|----------------------------|
+| ID | TCXXX |
+| Name | Division by zero |
+| Type| Functional test, Negative test |
+| Purpose | To test that the application handles illegal division by zero |
+| Preconditions | Product has a erroneous weight of zero |
+| Inputs | Positive dividend and 0 as divisor |
+| Expected Results | The result of the division operation is not a number |
+| After-conditions | Price per unit of sale not given |
+
+###  Test cases for filter.js
+
+|||
+|---------|----------------------------|
+| ID | TCXXX |
+| Name | Product search returns items matching search a term |
+| Type| functional test, positive test |
+| Purpose | To test that the user is able to find products by a search term provided by the user |
+| Preconditions | User sees a list of products and gives the application a search string to filter the results |
+| Inputs | A list of products, a search string |
+| Expected Results | A new list only with items matching the search string  |
+| After-conditions | User is able to browse the filtered list and select products for purchase |
+---
+|||
+|---------|----------------------------|
+| ID | TCXXX |
+| Name | Product search works when no results are found  |
+| Type| functional test, positive test |
+| Purpose | To test that the application functions when a given search term returns no matching results |
+| Preconditions | User sees a list of products and gives the application a search string to filter the results |
+| Inputs | A list of products, a search string |
+| Expected Results | Empty array i.e. no matching search results |
+| After-conditions | User is prompted with a notification for "No results" |
+
 # Virtual Machine
 
 > - Optionally, the description of your Virtual Machine setup with screenshots (e.g. of a tool test you are running), if
