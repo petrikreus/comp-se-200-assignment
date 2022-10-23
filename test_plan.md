@@ -148,7 +148,7 @@ use. If the testable amount was higher, a deeper consideration and comparison sh
 
 The Jest framework was tested by creating a simple test case for the divide function of the provided utility library.
 
-If we had access to the React application, we suggest that React Testing Library was to be used. It is a...
+If we had access to the React application, we suggest that [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/) was to be used. It is a light-weight solution for testing React components. It provides utility functions with react-dom and react-dom/test-utils. React testing library is not a test runner or framework. Even though the library isn't specific to any framework it is recommended that React testing library would be used with Jest.
 
 # Tests
 
