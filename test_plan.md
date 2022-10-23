@@ -219,6 +219,19 @@ Test cases are selected using a mix of **Equivalence partition method** and **li
 | Expected Results | Empty array i.e. no matching search results |
 | After-conditions | User is prompted with a notification for "No results" |
 
+###  Test cases for words.js
+
+|||
+|---------|----------------------------|
+| ID | TCXXX |
+| Name | Search input string is divided into individual search words |
+| Type| functional test, positive test |
+| Purpose | To test that the search input string given by a user is divided into search words for poduct filtering |
+| Preconditions | User sees a list of products and gives the application a search string to filter the results |
+| Inputs | A search string, delimiter pattern |
+| Expected Results | Array of substrings from the given search input |
+| After-conditions | Products list is filtered based on invdividual search words |
+
 # Virtual Machine
 
 > - Optionally, the description of your Virtual Machine setup with screenshots (e.g. of a tool test you are running), if
