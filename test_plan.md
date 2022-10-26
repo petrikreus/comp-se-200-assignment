@@ -98,27 +98,24 @@ Based on these scenarios, we recognized five main functional components of the a
 
 ## Source Files
 
-1. capitalize.js
-    - used when producer saves a new product (S3)
-2. reduce.js
-    - Used when displaying cart prices (S1)
-3. isEmpty.js
-    - Used when checking validity of form fields (S1, S2, S3, S4)
-4. divide.js
+1. at.js
+2. defaultTo.js
+    - Can be used when displaying information that may not have been input (S1, S3)
+3. divide.js
     - Has a critical error in syntax
     - Maybe used when displaying prices per Kg or similar (S1)
-5. defaultTo.js
-    - Can be used when displaying information that may not have been input (S1, S3)
-6. filter.js
+4. filter.js
     - Used when displaying product lists (S1)
-7. words.js
+5. isEmpty.js
+   - Used when checking validity of form fields (S1, S2, S3, S4)
+6. map.js
+   - Can be used when mapping array item (products) into React components (S1)
+7. reduce.js
+   - Used when displaying cart prices (S1)
+8. isDate.js
+9. words.js
     - Used when searching products (S1)
-8. toNumber.js
-    - Can be used when saving numeric data from input fields which give string values by default
-9. slice.js
-    - Can be used when removing products from cart
-10. map.js
-    - Can be used when mapping array item (products) into React components (S1)
+10. add.js
 
 ## What is not tested
 
