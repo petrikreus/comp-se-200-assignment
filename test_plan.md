@@ -202,37 +202,69 @@ inputs should be quite straightforward.
 |                  |                                                                                                                                    |
 |------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | ID               | TCXXX                                                                                                                              |
-| Name             | Display product's price per unit correctly with valid inputs                                                                       |
+| Name             | 6 divided by 3 is 2                                                                                                                |
+| File             | division.js                                                                                                                        |
 | Type             | Functional test, Positive test                                                                                                     |
 | Purpose          | To test that the application display product's price per unit of sale correctly when user is searching for products (Scenario: S1) |
-| Preconditions    | User is presented with a list of products                                                                                          |
-| Inputs           | Positive dividend and positive divisor                                                                                             |
-| Expected Results | Dividend divided by the divisor                                                                                                    |
-| After-conditions | Correct price per unit is displayed                                                                                                |
+| Preconditions    | division.js imported, dividend and divisor variables defined                                                                       |
+| Inputs           | Positive dividend 6 and positive divisor  3                                                                                        |
+| Expected Results | 2                                                                                                                                  |
+| After-conditions | Correct result of division is given                                                                                                |
 
 ---
 
 |                  |                                                               |
 |------------------|---------------------------------------------------------------|
 | ID               | TCXXX                                                         |
-| Name             | Division by zero                                              |
+| Name             | Dividing a positive number by zero returns Infinity           |
+| File             | division.js                                                   |
 | Type             | Functional test, Negative test                                |
 | Purpose          | To test that the application handles illegal division by zero |
-| Preconditions    | Product has a erroneous weight of zero                        |
-| Inputs           | Positive dividend and 0 as divisor                            |
+| Preconditions    | division.js imported, dividend and divisor variables defined  |
+| Inputs           | Positive dividend 10 and 0 as divisor                         |
 | Expected Results | The result of the division operation is not a number          |
-| After-conditions | Price per unit of sale not given                              |
+| After-conditions | Operation result is Infinity                                  |
+
+---
+
+|                  |                                                               |
+|------------------|---------------------------------------------------------------|
+| ID               | TCXXX                                                         |
+| Name             | Dividing zero by zero returns NaN                             |
+| File             | division.js                                                   |
+| Type             | Functional test, Negative test                                |
+| Purpose          | To test that the application handles illegal division by zero |
+| Preconditions    | division.js imported, dividend and divisor variables defined  |
+| Inputs           | Positive dividend 0 and 0 as divisor                          |
+| Expected Results | The result of the division operation is not a number          |
+| After-conditions | Operation result is NaN                                       |
+
+---
+
+|                  |                                                               |
+|------------------|---------------------------------------------------------------|
+| ID               | TCXXX                                                         |
+| Name             | Dividing -10 by 5 returns -2                                  |
+| File             | division.js                                                   |
+| Type             | Functional test, Positive test                                |
+| Purpose          | To test that the application handles illegal division by zero |
+| Preconditions    | division.js imported, dividend and divisor variables defined  |
+| Inputs           | Positive dividend -10 and 5s divisor                          |
+| Expected Results | -2                                                            |
+| After-conditions | Operation result is -2                                        |
+
 
 ### Test cases for filter.js
 
 |                  |                                                                                                             |
 |------------------|-------------------------------------------------------------------------------------------------------------|
 | ID               | TCXXX                                                                                                       |
-| Name             | Product search returns items matching search a term                                                         |
+| Name             | Filter returns a list with only objects mathching search criteria                                           |
+| File             | filter.js                                                                                                   |
 | Type             | functional test, positive test                                                                              |
-| Purpose          | To test that the user is able to find products by a search term provided by the user                        |
-| Preconditions    | User sees a list of products and gives the application a search string to filter the results (Scenario: S1) |
-| Inputs           | A list of products, a search string                                                                         |
+| Purpose          | To test that the user is able to find products by a search term provided by the user (Scenario: S1)         |
+| Preconditions    | List of products and a search string to filter the results                                                  |
+| Inputs           | A list of product objects, a search string                                                                  |
 | Expected Results | A new list only with items matching the search string                                                       |
 | After-conditions | User is able to browse the filtered list and select products for purchase                                   |
 
@@ -242,6 +274,7 @@ inputs should be quite straightforward.
 |------------------|------------------------------------------------------------------------------------------------------------|
 | ID               | TCXXX                                                                                                      |
 | Name             | Product search works when no results are found                                                             |
+| File             | filter.js                                                                                                  |
 | Type             | functional test, positive test                                                                             |
 | Purpose          | To test that the application functions when a given search term returns no matching results (Scenario: S1) |
 | Preconditions    | User sees a list of products and gives the application a search string to filter the results               |
@@ -255,6 +288,7 @@ inputs should be quite straightforward.
 |------------------|-----------------------------------------------------------------------------------------------------------------------|
 | ID               | TCXXX                                                                                                                 |
 | Name             | Search input string is divided into individual search words                                                           |
+| File             | words.js                                                                                                              |
 | Type             | functional test, positive test                                                                                        |
 | Purpose          | To test that the search input string given by a user is divided into search words for poduct filtering (Scenario: S1) |
 | Preconditions    | User sees a list of products and gives the application a search string to filter the results                          |
@@ -268,12 +302,173 @@ inputs should be quite straightforward.
 |------------------|---------------------------------------------------------------------------------------|
 | ID               | TCXXX                                                                                 |
 | Name             | Map lists all product objects from an array of products                               |
+| File             | map.js                                                                                |
 | Type             | functional test, positive test                                                        |
 | Purpose          | To test that products are listed correctly (Scenario: S1)                             |
 | Preconditions    | User navigates to available products page and is displayed a filterable list of items |
 | Inputs           | Array of products                                                                     |
 | Expected Results | The Function goes through the array of products and maps the items as a list          |
 | After-conditions | Products list is presented to the user                                                |
+
+### Test cases for isEmpty.js
+
+|                  |                                                                                       |
+|------------------|---------------------------------------------------------------------------------------|
+| ID               | TCXXX                                                                                 |
+| Name             | Empty object {} returns true                                                          |
+| File             | isEmpty.js                                                                            |
+| Type             | functional test, positive test                                                        |
+| Purpose          | Can be used to check if back-end returns empty lists or objects                       |
+| Preconditions    | isEmpty imported                                                                      |
+| Inputs           | Empty object {}                                                                       |
+| Expected Results | true                                                                                  |
+| After-conditions | -                                                                                     |
+
+---
+
+|                  |                                                                                       |
+|------------------|---------------------------------------------------------------------------------------|
+| ID               | TCXXX                                                                                 |
+| Name             | Empty array [] returns true                                                           |
+| File             | isEmpty.js                                                                            |
+| Type             | functional test, positive test                                                        |
+| Purpose          | Can be used to check if back-end returns empty lists or objects                       |
+| Preconditions    | isEmpty imported                                                                      |
+| Inputs           | Empty array   []                                                                      |
+| Expected Results | true                                                                                  |
+| After-conditions | -                                                                                     |
+
+---
+
+|                  |                                                                                       |
+|------------------|---------------------------------------------------------------------------------------|
+| ID               | TCXXX                                                                                 |
+| Name             | Non-empty object returns false                                                        |
+| File             | isEmpty.js                                                                            |
+| Type             | functional test, positive test                                                        |
+| Purpose          | Can be used to check if back-end returns empty lists or objects                       |
+| Preconditions    | isEmpty imported                                                                      |
+| Inputs           | Non-empty object {productid: 1, descriptiom: "Eggs"}                                  |
+| Expected Results | false                                                                                 |
+| After-conditions | -                                                                                     |
+
+---
+
+|                  |                                                                                       |
+|------------------|---------------------------------------------------------------------------------------|
+| ID               | TCXXX                                                                                 |
+| Name             | Non-empty array returns false                                                         |
+| File             | isEmpty.js                                                                            |
+| Type             | functional test, positive test                                                        |
+| Purpose          | Can be used to check if back-end returns empty lists or objects                       |
+| Preconditions    | isEmpty imported                                                                      |
+| Inputs           | Non-empty array   [1,2,3]                                                             |
+| Expected Results | false                                                                                 |
+| After-conditions | -                                                                                     |
+
+### Test cases for add.js
+|                  |                                                                                       |
+|------------------|---------------------------------------------------------------------------------------|
+| ID               | TCXXX                                                                                 |
+| Name             | 5 + 5 is 10                                                                           |
+| File             | add.js                                                                                |
+| Type             | functional test, positive test                                                        |
+| Purpose          | Can be used to add quantities and prices                                              |
+| Preconditions    | add imported                                                                          |
+| Inputs           | Addends 5 and 5                                                                       |
+| Expected Results | result of addition is 10                                                              |
+| After-conditions | -                                                                                     |
+
+---
+
+|                  |                                                                                       |
+|------------------|---------------------------------------------------------------------------------------|
+| ID               | TCXXX                                                                                 |
+| Name             | 5 + -5 is 0                                                                           |
+| File             | add.js                                                                                |
+| Type             | functional test, positive test                                                        |
+| Purpose          | Can be used to add quantities and prices                                              |
+| Preconditions    | add imported                                                                          |
+| Inputs           | Addends 5 and -5                                                                      |
+| Expected Results | result of addition is 0                                                               |
+| After-conditions | -                                                                                     |
+
+String addition is not tested because there is no usecase for it.
+
+### Test cases for at.js
+
+|                  |                                                                                       |
+|------------------|---------------------------------------------------------------------------------------|
+| ID               | TCXXX                                                                                 |
+| Name             | Returns an array with values matching given paths                                     |
+| File             | at.js                                                                                 |
+| Type             | functional test, positive test                                                        |
+| Purpose          | Can be used to get values of object properties                                        |
+| Preconditions    | at imported                                                                           |
+| Inputs           | object = { 'a': [{ 'b': { 'c': 3 } }, 4] } and array of paths ['a[0].b.c', 'a[1]']    |
+| Expected Results | [3, 4]                                                                                |
+| After-conditions | -                                                                                     |
+
+---
+
+|                  |                                                                                       |
+|------------------|---------------------------------------------------------------------------------------|
+| ID               | TCXXX                                                                                 |
+| Name             | Returns an array with undefined values when called integers                           |
+| File             | at.js                                                                                 |
+| Type             | functional test, negative test                                                        |
+| Purpose          | Can be used to get values of object properties                                        |
+| Preconditions    | at imported                                                                           |
+| Inputs           | two integers: 1 and 2                                                                 |
+| Expected Results | [ undefined ]                                                                         |
+| After-conditions | -                                                                                     |
+
+### Test cases for defaultTo.js
+
+|                  |                                                                                       |
+|------------------|---------------------------------------------------------------------------------------|
+| ID               | TCXXX                                                                                 |
+| Name             | Returns a default value when value is null                                            |
+| File             | defaultTo.js                                                                          |
+| Type             | functional test, positive test                                                        |
+| Purpose          | May be used when displaying and saving information.                                   |
+| Preconditions    | defaultTo imported                                                                    |
+| Inputs           | value: null and default value: "I'm a default value :)"                               |
+| Expected Results | "I'm a default value :)"                                                              |
+| After-conditions | -                                                                                     |
+
+---
+
+|                  |                                                                                       |
+|------------------|---------------------------------------------------------------------------------------|
+| ID               | TCXXX                                                                                 |
+| Name             | Returns a default value when value is undefined                                       |
+| File             | defaultTo.js                                                                          |
+| Type             | functional test, positive test                                                        |
+| Purpose          | May be used when displaying and saving information.                                   |
+| Preconditions    | defaultTo imported                                                                    |
+| Inputs           | value: undefined and default value: "I'm a default value :)"                          |
+| Expected Results | "I'm a default value :)"                                                              |
+| After-conditions | -                                                                                     |
+
+---
+
+|                  |                                                                                       |
+|------------------|---------------------------------------------------------------------------------------|
+| ID               | TCXXX                                                                                 |
+| Name             | Returns a value value when value is given                                             |
+| File             | defaultTo.js                                                                          |
+| Type             | functional test, positive test                                                        |
+| Purpose          | May be used when displaying and saving information.                                   |
+| Preconditions    | defaultTo imported                                                                    |
+| Inputs           | value: "I'm a valueable XD" and default value: "I'm a default value :)"               |
+| Expected Results | "I'm a valueable XD"                                                                  |
+| After-conditions | -                                                                                     |
+
+### Test cases for reduce.js
+
+### Test cases for isDate.js
+
 
 # Virtual Machine
 
