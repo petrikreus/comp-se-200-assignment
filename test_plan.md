@@ -27,27 +27,46 @@
 > - What is in the document?
 > - What is the purpose of the document?
 
-This document describes a test plan for the E-Commerce Store application. The aim is to give a detailed description
-of the test strategy, test objectives and test deliverables for the project.
+This document describes a test plan and a test design for the utility library of the front-end of the E-Commerce Store
+application. The aim is to give a detailed description of the test strategy, test objectives and test deliverables for
+the project.
 
 First, descriptions of end-to-end scenarios are presented. Second, tools for the testing are defined with the actual
 tests. Finally, a Virtual Machine setup for the testing environment is illustrated.
 
-# Scenarios
+# Design
 
-> - The descriptions of your end-to-end scenarios.
-> - What components of the E-commerce store will be tested, how and why?
-> - What tools will be used for the testing (if you can think of any based on the provided documentation)?
-> - A (UML) diagram of your scenario. The diagram can be, for example, an activity or sequence diagram, whatever feels
-    most natural. The diagram can be high-level (abstract). If you know which tools are should to be used, describe how
-    they are used in relation to your diagram.
-> - List the source code files you selected for your unit tests from the provided utility library. Use a prioritization
-    method to validate your file selections. Remember your end-to-end scenarios.
+In this section, we describe the general test design and its rationale. First, we define a scope for the test
+design. Second, the most important end-to-end scenarios of the application are specified. Third, we present the main
+components that we identified based on the scenarios. Finally, a selection of source files to be tested are introduced.
+
+## Scope
+
+The scope of the testing is to test 10 source files of the utility library, which consists of 43 source files in total.
+The amount to be tested is limited to 10 due to the time constraints. The test strategies are limited to unit test and
+integration tests, mostly since we do not have access to the application or any of its parts aside from the utility
+library source files. That means that many testing strategies are left out of the scope, such as usability testing,
+system testing and acceptance testing.
+
+Additionally, the specification states that only the top level of the utility library is to be tested, hence the
+files under the `.internal/` folder are left out of the testing scope. Due to the nature of the files under test,
+the testing concentrates only on functional tests.
+
+To select the source files to be tested, first a few end-to-end scenarios are detected based on the
+provided specification of the product. Next, main components of the application are analyzed from the scenarios.
+Finally, a prioritization method is used, utilizing the scenarios and components, to figure out the most important
+source files that need to be tested.
+
+## Scenarios and components
 
 The testing is designed upon four main end-to-end scenarios identified from the application description. The scenarios
 described here are limited to four, since based on our evaluation, those cover the most important features of the
-application. Two of them are related to customer functionality and two to producer functionality. Following figures 
-(Figure 1–4) present these scenarios in a form of sequence diagrams.
+application. Two of them are related to customer functionality and two to producer functionality. Following figures
+present these scenarios in a form of sequence diagrams. Figure 1 describes a user logging in, searching for a 
+product, adding a product to cart, and finally making a purchase. Figure 2 describes a new user registering an 
+account and logging in. Figure 3 describes a producer logging in, adding a new product, and removing a product. 
+Figure 4 describes a new producer registering a new account, waiting for it to be approved, and finally logging in 
+after an approval. 
 
 **S1: Customer orders products**
 
@@ -86,7 +105,7 @@ application. Two of them are related to customer functionality and two to produc
 6. Admin approves the producer registration.
 7. Producer is able to log in.
 
-**S5: Producer handles a received order (backup scenario option)**
+[//]: # (**S5: Producer handles a received order &#40;backup scenario option&#41;**)
 
 Based on these scenarios, we recognized five main functional components of the application. These components are
 
@@ -96,39 +115,27 @@ Based on these scenarios, we recognized five main functional components of the a
 - Search (Customer)
 - Product management (Producer).
 
-## Source Files
+## Selected Source Files
 
-1. at.js
-2. defaultTo.js
-    - Can be used when displaying information that may not have been input (S1, S3)
-3. divide.js
-    - Has a critical error in syntax
-    - Maybe used when displaying prices per Kg or similar (S1)
-4. filter.js
-    - Used when displaying product lists (S1)
-5. isEmpty.js
-   - Used when checking validity of form fields (S1, S2, S3, S4)
-6. map.js
-   - Can be used when mapping array item (products) into React components (S1)
-7. reduce.js
-   - Used when displaying cart prices (S1)
-8. isDate.js
-9. words.js
-    - Used when searching products (S1)
-10. add.js
+With the scenarios and components identified, we first used the MoSCoW method to prioritize the source files. Due to
+the strict time limitations, the prioritization were conducted on a highly critical manner, and most of the files
+ended up under the Won't test category from the start. In the end, we narrowed the source files down to the 10 Must
+test files, and all other files were moved under Won't test category.
 
-## What is not tested
+The source files included in the testing are displayed in the following table (Table 1).
 
-- No usability testing
-  - no access to the application
-- No system testing 
-  - no access to the application
-- No testing of the files in `.internal/` folder
-  - regulated by the specification
-- Test files limited to 10 due to time constraints
-  - regulated by the specification
-- No testing of non-functional requirements
-  - due to the lack of specification
+| Source File  | Rationale for selection / Example use case                                                                                  | Related Scenario(s) |
+|--------------|-----------------------------------------------------------------------------------------------------------------------------|---------------------|
+| add.js       | Basic math function, may be used in multiple situations.                                                                    | S1, S3              |
+| at.js        | May be used in many situations when getting data from an object.                                                            | S1, S2, S3, S4      |
+| defaultTo.js | May be used when displaying and saving information.                                                                         | S1, S3              |
+| divide.js    | Basic math function, may be used when displaying prices and in other calculations. Has a critical error in syntax.          | S1, S3              |
+| filter.js    | May be used when displaying product lists.                                                                                  | S1                  |
+| isDate.js    | May be used when displaying dates in product pages. Working with dates is a well known challenge in JavaScript development. | S1, S3              |
+| isEmpty.js   | May be used when checking validity of form fields.                                                                          | S1, S2, S3, S4      |
+| map.js       | May be used when converting array data into React components.                                                               | S1, S3              |
+| reduce.js    | May be used when displaying prices in cart.                                                                                 | S1                  |
+| words.js     | May be used in parsing search parameters in product search.                                                                 | S1                  |
 
 # Tools
 
@@ -136,16 +143,37 @@ Based on these scenarios, we recognized five main functional components of the a
     homepages, etc). Why did you select these tools and how did you test them?
 > - How would the tools be used to test your end-to-end scenarios?
 
-- Jest
-- React Testing Library
+To get the most out the testing, the production environment and the testing environment should be
+as similar as possible. However, the specification of the E-Commerce application does not describe the environment,
+aside from that its front-end uses React with the utility library provided. Thus, we will give our best guess, based
+on our research and experience, to describe a working environment for the basis of our tool selection. The environment
+description will concentrate only on the front-end React application and tools relating to the functional tests,
+which are specified in the next section.
+
+## General environment
+
+As the front-end of the application is built with React, and the utility library has a `package.json` file, it will
+most likely run on Node.js. Node.js is an open-source JavaScript runtime. It is a widely used base for various
+JavaScript applications. Node.js provides a useful package manager, Node Package Manager (npm), although other package 
+managers could be used as well, such as pnpm or Yarn. With the npm, installing dependencies to the project is 
+effortless, and controlling the versions of the dependencies is relatively easy.
+
+The utility library provided will supposedly be installed to the production application with the npm, or similar.  
+
+## Testing tools
 
 We picked [Jest](https://jestjs.io/), a JavaScript testing framework, for unit and integration testing. Since the
 testable file/function count is low, Jest will work well. It works without much additional configuration and is easy to
-use. If the testable amount was higher, a deeper consideration and comparison should be conducted.
+use. If the testable amount was higher, a deeper consideration and comparison of various testing libraries should be 
+conducted.
 
 The Jest framework was tested by creating a simple test case for the divide function of the provided utility library.
 
-If we had access to the React application, we suggest that [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/) was to be used. It is a light-weight solution for testing React components. It provides utility functions with react-dom and react-dom/test-utils. React testing library is not a test runner or framework. Even though the library isn't specific to any framework it is recommended that React testing library would be used with Jest.
+If we had access to the React application, we suggest
+that [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/) was to be used. It is a
+light-weight solution for testing React components. It provides utility functions with react-dom and
+react-dom/test-utils. React testing library is not a test runner or framework. Even though the library isn't specific to
+any framework it is recommended that React testing library would be used with Jest.
 
 # Tests
 
@@ -163,84 +191,89 @@ If we had access to the React application, we suggest that [React Testing Librar
 
 # Test Cases
 
-The following are short descriptions of designed test cases for the selected functionality. 
+The following are short descriptions of designed test cases for the selected functionality.
 
-###  Test cases for divide.js
+### Test cases for divide.js
 
-Test cases are selected using a mix of **Equivalence partition method** and **limit value analysis**. The **divide** function should perform a simple mathematical division operation and the expected behavior of the operation with given inputs should be quite straightforward. 
+Test cases are selected using a mix of **Equivalence partition method** and **limit value analysis**. The **divide**
+function should perform a simple mathematical division operation and the expected behavior of the operation with given
+inputs should be quite straightforward.
 
-|||
-|---------|----------------------------|
-| ID | TCXXX |
-| Name | Display product's price per unit correctly with valid inputs  |
-| Type| Functional test, Positive test |
-| Purpose | To test that the application display product's price per unit of sale correctly when user is searching for products (Scenario: S1) |
-| Preconditions | User is presented with a list of products |
-| Inputs | Positive dividend and positive divisor |
-| Expected Results | Dividend divided by the divisor |
-| After-conditions | Correct price per unit is displayed |
+|                  |                                                                                                                                    |
+|------------------|------------------------------------------------------------------------------------------------------------------------------------|
+| ID               | TCXXX                                                                                                                              |
+| Name             | Display product's price per unit correctly with valid inputs                                                                       |
+| Type             | Functional test, Positive test                                                                                                     |
+| Purpose          | To test that the application display product's price per unit of sale correctly when user is searching for products (Scenario: S1) |
+| Preconditions    | User is presented with a list of products                                                                                          |
+| Inputs           | Positive dividend and positive divisor                                                                                             |
+| Expected Results | Dividend divided by the divisor                                                                                                    |
+| After-conditions | Correct price per unit is displayed                                                                                                |
+
 ---
 
-|||
-|---------|----------------------------|
-| ID | TCXXX |
-| Name | Division by zero |
-| Type| Functional test, Negative test |
-| Purpose | To test that the application handles illegal division by zero |
-| Preconditions | Product has a erroneous weight of zero |
-| Inputs | Positive dividend and 0 as divisor |
-| Expected Results | The result of the division operation is not a number |
-| After-conditions | Price per unit of sale not given |
+|                  |                                                               |
+|------------------|---------------------------------------------------------------|
+| ID               | TCXXX                                                         |
+| Name             | Division by zero                                              |
+| Type             | Functional test, Negative test                                |
+| Purpose          | To test that the application handles illegal division by zero |
+| Preconditions    | Product has a erroneous weight of zero                        |
+| Inputs           | Positive dividend and 0 as divisor                            |
+| Expected Results | The result of the division operation is not a number          |
+| After-conditions | Price per unit of sale not given                              |
 
-###  Test cases for filter.js
+### Test cases for filter.js
 
-|||
-|---------|----------------------------|
-| ID | TCXXX |
-| Name | Product search returns items matching search a term |
-| Type| functional test, positive test |
-| Purpose | To test that the user is able to find products by a search term provided by the user |
-| Preconditions | User sees a list of products and gives the application a search string to filter the results (Scenario: S1) |
-| Inputs | A list of products, a search string |
-| Expected Results | A new list only with items matching the search string  |
-| After-conditions | User is able to browse the filtered list and select products for purchase |
+|                  |                                                                                                             |
+|------------------|-------------------------------------------------------------------------------------------------------------|
+| ID               | TCXXX                                                                                                       |
+| Name             | Product search returns items matching search a term                                                         |
+| Type             | functional test, positive test                                                                              |
+| Purpose          | To test that the user is able to find products by a search term provided by the user                        |
+| Preconditions    | User sees a list of products and gives the application a search string to filter the results (Scenario: S1) |
+| Inputs           | A list of products, a search string                                                                         |
+| Expected Results | A new list only with items matching the search string                                                       |
+| After-conditions | User is able to browse the filtered list and select products for purchase                                   |
+
 ---
-|||
-|---------|----------------------------|
-| ID | TCXXX |
-| Name | Product search works when no results are found  |
-| Type| functional test, positive test |
-| Purpose | To test that the application functions when a given search term returns no matching results (Scenario: S1) |
-| Preconditions | User sees a list of products and gives the application a search string to filter the results |
-| Inputs | A list of products, a search string |
-| Expected Results | Empty array i.e. no matching search results |
-| After-conditions | User is prompted with a notification for "No results" |
 
-###  Test cases for words.js
+|                  |                                                                                                            |
+|------------------|------------------------------------------------------------------------------------------------------------|
+| ID               | TCXXX                                                                                                      |
+| Name             | Product search works when no results are found                                                             |
+| Type             | functional test, positive test                                                                             |
+| Purpose          | To test that the application functions when a given search term returns no matching results (Scenario: S1) |
+| Preconditions    | User sees a list of products and gives the application a search string to filter the results               |
+| Inputs           | A list of products, a search string                                                                        |
+| Expected Results | Empty array i.e. no matching search results                                                                |
+| After-conditions | User is prompted with a notification for "No results"                                                      |
 
-|||
-|---------|----------------------------|
-| ID | TCXXX |
-| Name | Search input string is divided into individual search words |
-| Type| functional test, positive test |
-| Purpose | To test that the search input string given by a user is divided into search words for poduct filtering (Scenario: S1) |
-| Preconditions | User sees a list of products and gives the application a search string to filter the results |
-| Inputs | A search string, delimiter pattern |
-| Expected Results | Array of substrings from the given search input |
-| After-conditions | Products list is filtered based on invdividual search words |
+### Test cases for words.js
 
-###  Test cases for map.js
+|                  |                                                                                                                       |
+|------------------|-----------------------------------------------------------------------------------------------------------------------|
+| ID               | TCXXX                                                                                                                 |
+| Name             | Search input string is divided into individual search words                                                           |
+| Type             | functional test, positive test                                                                                        |
+| Purpose          | To test that the search input string given by a user is divided into search words for poduct filtering (Scenario: S1) |
+| Preconditions    | User sees a list of products and gives the application a search string to filter the results                          |
+| Inputs           | A search string, delimiter pattern                                                                                    |
+| Expected Results | Array of substrings from the given search input                                                                       |
+| After-conditions | Products list is filtered based on invdividual search words                                                           |
 
-|||
-|---------|----------------------------|
-| ID | TCXXX |
-| Name | Map lists all product objects from an array of products |
-| Type| functional test, positive test |
-| Purpose | To test that products are listed correctly (Scenario: S1)|
-| Preconditions | User navigates to available products page and is displayed a filterable list of items |
-| Inputs | Array of products |
-| Expected Results | The Function goes through the array of products and maps the items as a list |
-| After-conditions | Products list is presented to the user |
+### Test cases for map.js
+
+|                  |                                                                                       |
+|------------------|---------------------------------------------------------------------------------------|
+| ID               | TCXXX                                                                                 |
+| Name             | Map lists all product objects from an array of products                               |
+| Type             | functional test, positive test                                                        |
+| Purpose          | To test that products are listed correctly (Scenario: S1)                             |
+| Preconditions    | User navigates to available products page and is displayed a filterable list of items |
+| Inputs           | Array of products                                                                     |
+| Expected Results | The Function goes through the array of products and maps the items as a list          |
+| After-conditions | Products list is presented to the user                                                |
 
 # Virtual Machine
 
