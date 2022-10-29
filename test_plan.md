@@ -461,14 +461,51 @@ String addition is not tested because there is no usecase for it.
 | Type             | functional test, positive test                                                        |
 | Purpose          | May be used when displaying and saving information.                                   |
 | Preconditions    | defaultTo imported                                                                    |
-| Inputs           | value: "I'm a valueable XD" and default value: "I'm a default value :)"               |
-| Expected Results | "I'm a valueable XD"                                                                  |
+| Inputs           | value: "I'm valuable XD" and default value: "I'm a default value :)"                  |
+| Expected Results | "I'm valuable XD"                                                                     |
 | After-conditions | -                                                                                     |
 
 ### Test cases for reduce.js
 
+|                  |                                                                                       |
+|------------------|---------------------------------------------------------------------------------------|
+| ID               | TCXXX                                                                                 |
+| Name             | Calculating the sum of array elements                                                 |
+| File             | reduce.js                                                                             |
+| Type             | functional test, positive test                                                        |
+| Purpose          | May be used when displaying prices in cart.                                           |
+| Preconditions    | reduce imported                                                                       |
+| Inputs           | Collection: [1, 2, 3], iteratee: (sum, n) => sum + n) and inital accumulator value 0. |
+| Expected Results | 6                                                                                     |
+| After-conditions | -                                                                                     |
+
 ### Test cases for isDate.js
 
+|                  |                                                                                       |
+|------------------|---------------------------------------------------------------------------------------|
+| ID               | TCXXX                                                                                 |
+| Name             | Returns true when argument is a Date object                                           |
+| File             | isDate.js                                                                             |
+| Type             | functional test, positive test                                                        |
+| Purpose          | Working with dates is a well known challenge in JavaScript development.               |
+| Preconditions    | isDate imported                                                                       |
+| Inputs           | new Date                                                                              |
+| Expected Results | true                                                                                  |
+| After-conditions | -                                                                                     |
+
+---
+
+|                  |                                                                                       |
+|------------------|---------------------------------------------------------------------------------------|
+| ID               | TCXXX                                                                                 |
+| Name             | Returns false when argument is not a Date object                                      |
+| File             | isDate.js                                                                             |
+| Type             | functional test, positive test                                                        |
+| Purpose          | Working with dates is a well known challenge in JavaScript development.               |
+| Preconditions    | isDate imported                                                                       |
+| Inputs           | 'Mon April 23 2012'                                                                   |
+| Expected Results | false                                                                                 |
+| After-conditions | -                                                                                     |
 
 # Virtual Machine
 
