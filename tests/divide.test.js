@@ -15,7 +15,7 @@ describe('divide.js', () => {
   })
 
   test('Dividing -10 by 5 returns -2', () => {
-    expect(divide(-10, 5)).toBeCloseTo(-2)
+    expect(divide(-10, 5)).toBeCloseTo(-2.0)
   })
 
 })
