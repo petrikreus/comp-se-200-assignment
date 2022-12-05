@@ -28,11 +28,6 @@
 - Estimate the test coverage. Was the library "fully tested"? How about the E-Commerce application? Is there a need 
   for further tests?
 
-# Virtual Machine
-
-- Optionally, the description of your Virtual Machine setup with screenshots (e.g. showing the execution of your 
-local tests), if you want to try your luck in getting the bonus point (and did not already include the description in your plan, in part 1).
-
 # References
 
 - List of any and all references used in the document. Add URL links in references (as opposed to inline links within 
