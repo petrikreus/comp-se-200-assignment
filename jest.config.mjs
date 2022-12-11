@@ -20,26 +20,26 @@ export default {
   collectCoverage: false,
 
   // An array of glob patterns indicating a set of files for which coverage information should be collected
-  // collectCoverageFrom: undefined,
+  collectCoverageFrom: ["./node_modules/software-testing-assignment/src/*.js"],
 
   // The directory where Jest should output its coverage files
   coverageDirectory: "coverage",
 
   // An array of regexp pattern strings used to skip coverage collection
-  // coveragePathIgnorePatterns: [
-  //   "/node_modules/"
-  // ],
+  coveragePathIgnorePatterns: [
+    "/node_modules/(?!software-testing-assignment)(.*)"
+  ],
 
   // Indicates which provider should be used to instrument code for coverage
   coverageProvider: "v8",
 
   // A list of reporter names that Jest uses when writing coverage reports
-  // coverageReporters: [
+  coverageReporters: [
   //   "json",
   //   "text",
-  //   "lcov",
+    "lcov",
   //   "clover"
-  // ],
+  ],
 
   // An object that configures minimum threshold enforcement for coverage results
   // coverageThreshold: undefined,
@@ -56,7 +56,7 @@ export default {
   // },
 
   // Force coverage collection from ignored files using an array of glob patterns
-  // forceCoverageMatch: [],
+  //forceCoverageMatch: ["./node_modules/software-testing-assignment/src/**/*.js"],
 
   // A path to a module which exports an async function that is triggered once before all test suites
   // globalSetup: undefined,

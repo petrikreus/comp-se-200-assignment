@@ -5,8 +5,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "es-test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
-    "test": "npm run es-test"
+    "test": "NODE_OPTIONS=--experimental-vm-modules jest",
+    "test:coverage": "NODE_OPTIONS=--experimental-vm-modules jest --coverage && coveralls < coverage/lcov.info"
   },
   "repository": {
     "type": "git",
