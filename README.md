@@ -1,4 +1,5 @@
-# A repository for Tampere University Software Testing course assignment.
+# A repository for Tampere University Software Testing course assignment. [![Coverage Status](https://coveralls.io/repos/github/petrikreus/comp-se-200-assignment/badge.svg?branch=main)](https://coveralls.io/github/petrikreus/comp-se-200-assignment?branch=main)
+
 
 `test_plan.md` is the main document. `diagrams/` include sequence diagrams and possible other diagrams.
 
