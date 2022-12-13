@@ -55,6 +55,25 @@ The severity rating of the bugs from the least critical to the most critical is
 
 ## CI pipeline and coveralls
 
+Node.js starter workflow template (By GitHub Actions) was used as the base for the continuous integretion and testing workflow for this project. The workflow will do a clean installation of node dependencies, cache/restore them and run tests across different versions of node. Build of the source code was obviously omitted since the actual web store application is not implemented in the scope of this assignment.
+
+The workflow will be triggered on push events and pull requests to the main branch of the repository. The jobs to run on Linux, using the GitHub-hosted ubuntu-latest runners.
+
+The starter workflow includes a matrix strategy that builds and tests your code with different Node.js versions. Our workflow uses Node versions 16.x and 18.x. The 'x' matches the latest minor and patch release available for a version. The jobs of the workflow are run on each of the specified Node versions separately. We had issues with Node version 14 when running our tests and not enough time to debug and fix the issue, so Node version 14 was dropped from the workflow.
+
+The workflow runs the following commands:
+
+```
+$   npm ci
+```
+which does a clean install of the applications dependencies and
+
+```
+$   npm run test:coverage
+```
+
+which runs the Jest unit tests with coverage and coveralls. Then the work flow posts the test suite's LCOV coverage data to coveralls.io.
+
 
 
 ## Bug report template
@@ -70,7 +89,7 @@ The severity rating of the bugs from the least critical to the most critical is
 | Testing configuration  | Information on testing configuration                                             |
 | Report type            | Programming error, design error, conflict with documentation, proposal, question |
 | Failure repeatable     | Yes, No, Sometimes, Unknown                                                      |
-| Seriousness            | High, Medium, Low                                                                |
+| Seriousness            | Major, Medium, Minor                                                             |
 | How to repeat          | Instructions how to repeat / re-produce the issue                                |
 | Recommended fix        | Suggestion for fixing the issue                                                  |
 | Assigned to            | Person responsible for reviewing and fixing the bug                              |
@@ -92,3 +111,6 @@ The severity rating of the bugs from the least critical to the most critical is
 
 - List of any and all references used in the document. Add URL links in references (as opposed to inline links within
   the text).
+- [Building and testing Node.js](https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs)
+- [Coveralls GitHub Action](https://github.com/marketplace/actions/coveralls-github-action)
+
