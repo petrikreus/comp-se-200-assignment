@@ -57,6 +57,27 @@ The severity rating of the bugs from the least critical to the most critical is
 
 
 
+## Bug report template
+
+|                        |                                                                                  |
+|------------------------|----------------------------------------------------------------------------------|
+| ID                     | Unique ID                                                                        |
+| Title                  | Descriptive report title                                                         |
+| Description            | Description of the issue / error / failure                                       |
+| Reported by            | Person who created the bug report                                                |
+| Reported Date          | When was the report created                                                      |
+| Name of the Program    | Name of the program under testing                                                |
+| Testing configuration  | Information on testing configuration                                             |
+| Report type            | Programming error, design error, conflict with documentation, proposal, question |
+| Failure repeatable     | Yes, No, Sometimes, Unknown                                                      |
+| Seriousness            | High, Medium, Low                                                                |
+| How to repeat          | Instructions how to repeat / re-produce the issue                                |
+| Recommended fix        | Suggestion for fixing the issue                                                  |
+| Assigned to            | Person responsible for reviewing and fixing the bug                              |
+| Status                 | New, Assigned, Fixed, Verified, Re-open, Won't Fix, Closed                       |
+| Comments               | Free-form comments.                                                              |
+
+
 # Findings and conclusions
 
 - Make reports of any bugs or issues you happen to find (if any).
