@@ -59,7 +59,7 @@ Node.js starter workflow template (By GitHub Actions) was used as the base for t
 
 The workflow will be triggered on push events and pull requests to the main branch of the repository. The jobs to run on Linux, using the GitHub-hosted ubuntu-latest runners.
 
-The starter workflow includes a matrix strategy that builds and tests your code with different Node.js versions. Our workflow uses Node versions 16.x and 18.x. The 'x' matches the latest minor and patch release available for a version. The jobs of the workflow are run on each of the specified Node versions separately. We had issues with Node version 14 when running our tests and not enough time to debug and fix the issue, so Node version 14 was dropped from the workflow.
+The starter workflow includes a matrix strategy that builds and tests the code with different Node.js versions. Our workflow uses Node versions 16.x and 18.x. The 'x' matches the latest minor and patch release available for a version. The jobs of the workflow are run on each of the specified Node versions separately. We had issues with Node version 14 when running our tests and not enough time to debug and fix the issue, so Node version 14 was dropped from the workflow.
 
 The workflow runs the following commands:
 
@@ -74,6 +74,7 @@ $   npm run test:coverage
 
 which runs the Jest unit tests with coverage and coveralls. Then the work flow posts the test suite's LCOV coverage data to coveralls.io.
 
+**TODO add a screenshot of your working GitHub Actions workflow and test results (both from GitHub), in addition, add either a publicly accessible link to your Coveralls reports or screenshots of the reports on Coveralls.**
 
 
 ## Bug report template
