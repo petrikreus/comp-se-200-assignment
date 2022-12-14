@@ -68,7 +68,7 @@ You can run the tests with coverage with the command:
 ```
 $   npm run test:coverage
 ```
-When locally runninng tests with coverage, the coverage report can be found from a folder named **coverage** from the project root folder. Path to the summary report is the following:
+When locally running tests with coverage, the coverage report can be found from a folder named **coverage** from the project root folder. Path to the summary report is the following:
 ```
 .\coverage\lcov-report\index.html
 ```
