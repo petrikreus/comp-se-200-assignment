@@ -97,6 +97,9 @@ which runs the Jest unit tests with coverage and coveralls. Then the work flow p
 
 **TODO add a screenshot of your working GitHub Actions workflow and test results (both from GitHub), in addition, add either a publicly accessible link to your Coveralls reports or screenshots of the reports on Coveralls.**
 
+![GitHub Actions](github_actions.png)
+From the [Coveralls report](https://coveralls.io/github/petrikreus/comp-se-200-assignment?branch=main) you can view the test coverage information.
+
 
 ## Bug report template
 
