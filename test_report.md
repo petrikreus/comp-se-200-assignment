@@ -51,6 +51,21 @@ The severity rating of the bugs from the least critical to the most critical is
 
 ## Description of the tests
 
+Unit test were made using **Jest** JavaScript Testing Framework. Jest was selected because it is easy to use and there is little to no need for configuration. It is also easy to generate code coverage reports with the --coverage flag. The ten selected utility function files, from the provided library were the following:
+
+- add.js
+- at.js
+- defaultTo.js
+- divide.js
+- filter.js
+- isDate.js
+- isEmpty.js
+- map.js
+- reduce.js
+- words.js
+
+More in-depth reasoning for these selections can be found from the test_plan.md file. The tests consist of ten test suites corresponding to each of the selected files. Total amount of unit tests written was 25. Tests can be found from the **tests** folder in the project root. Tests are named using the convention: filename.test.js, where the filename is the utility library file under testing. The individual tests are pretty straightforward in of themselves. The functions are given predefined inputs (test_plan.md) and the function outputs are compared to the expected output. If output matches the expected output the test passes. If the function returns something unexpeted or there are errors the test fails.
+
 ## Running the tests locally
 
 The tests can by run locally from a terminal by navigating to the project root folder. First install required dependencies by running the command: 
@@ -139,4 +154,5 @@ From the [Coveralls report](https://coveralls.io/github/petrikreus/comp-se-200-a
   the text).
 - [Building and testing Node.js](https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs)
 - [Coveralls GitHub Action](https://github.com/marketplace/actions/coveralls-github-action)
+- [Jest](https://jestjs.io/docs/getting-started)
 
