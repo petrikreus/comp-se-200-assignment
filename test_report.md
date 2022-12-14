@@ -51,7 +51,7 @@ The severity rating of the bugs from the least critical to the most critical is
 
 ## Description of the tests
 
-Unit test were made using **Jest** JavaScript Testing Framework. Jest was selected because it is easy to use and there is little to no need for configuration. It is also easy to generate code coverage reports with the --coverage flag. The ten selected utility function files, from the provided library were the following:
+Unit test were made using **Jest** JavaScript Testing Framework. Jest was selected because it is easy to use and there is little or no need for configuration. It is also easy to generate code coverage reports with the --coverage flag. The ten selected utility function files from the provided library were the following:
 
 - add.js
 - at.js
