@@ -51,6 +51,27 @@ The severity rating of the bugs from the least critical to the most critical is
 
 ## Description of the tests
 
+## Running the tests locally
+
+The tests can by run locally from a terminal by navigating to the project root folder. First install required dependencies by running the command: 
+
+```
+$   npm install
+```
+You can run the unit tests without coverage in the terminal with the command:
+
+```
+$   npm run test
+```
+You can run the tests with coverage with the command:
+
+```
+$   npm run test:coverage
+```
+When locally runninng tests with coverage, the coverage report can be found from a folder named **coverage** from the project root folder. Path to the summary report is the following:
+```
+.\coverage\lcov-report\index.html
+```
 
 
 ## CI pipeline and coveralls
