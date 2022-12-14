@@ -110,6 +110,7 @@ $   npm run test:coverage
 
 which runs the Jest unit tests with coverage and coveralls. Then the work flow posts the test suite's LCOV coverage data to coveralls.io.
 
+The picture below shows GitHub Actions workflow running the tests on push event.
 
 ![GitHub Actions](github_actions.png)
 
