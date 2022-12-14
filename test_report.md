@@ -110,7 +110,6 @@ $   npm run test:coverage
 
 which runs the Jest unit tests with coverage and coveralls. Then the work flow posts the test suite's LCOV coverage data to coveralls.io.
 
-**TODO add a screenshot of your working GitHub Actions workflow and test results (both from GitHub), in addition, add either a publicly accessible link to your Coveralls reports or screenshots of the reports on Coveralls.**
 
 ![GitHub Actions](github_actions.png)
 
@@ -140,7 +139,7 @@ From the [Coveralls report](https://coveralls.io/github/petrikreus/comp-se-200-a
 
 # Findings and conclusions
 
-- Make reports of any bugs or issues you happen to find (if any).
+- Make reports of any bugs or issues you happen to find (if any). Excel file with reports in repo.
 - Estimate on the overall quality of the tested library. Did it pass your tests? Is it ready for production? Should
   it be used with the E-Commerce application? Is the E-Commerce application ready for production?
 - Estimate the test coverage. Was the library "fully tested"? How about the E-Commerce application? Is there a need
