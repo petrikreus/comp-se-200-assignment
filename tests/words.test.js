@@ -2,7 +2,7 @@ import words from 'software-testing-assignment/src/words'
 
 describe('words.js', () => {
 
-  test('Returns an array of individual words', () => {
+  test('Returns an array of individual words, without matcher parameter', () => {
     const inputString = 'one two three'
     const expectedResult = ['one', 'two', 'three']
     expect(words(inputString)).toEqual(expectedResult)

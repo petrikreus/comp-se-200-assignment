@@ -17,8 +17,8 @@
 
 This documents contains a report of the testing process for the utility library of the front-end of the E-Commerce
 Store application. The aim of this document is to give a thorough description of what was tested, how the tests were
-run and what were the results. Additionally, some things were missing from the plan and are described for the
-clarification.
+run and what were the results. Additionally, some things were missing from the plan and are described here for the 
+sake of clarity.
 
 The report begins with a description of the target of the testing and a list of issue categorization in Section 2.
 Next, section 3 gives an overview of the tests and the GitHub Actions workflow, in addition to instructions of how
@@ -26,17 +26,11 @@ to run the tests. Finally, section 4 provides our findings and conclusion of the
 
 # Definition of done
 
-- when has the test target as a whole passed testing
-- example of bug/issue report to ease the burden of documentation, and a pre-defined list of bug/issue categorization (
-  e.g. bug severity rating such as minor, medium, major).
+The target of the testing was to test the most critical parts of the utility library. The files chosen for the tests are
+essential for the front end using the utility library, which is why all tests must pass, until the testing can be 
+deemed as passed as a whole.
 
-This section provides complementary information that was missing from the testing plan.
-
-The target of the testing is to test the most critical parts of the utility library. The files chosen for the tests are
-essential for the front end using the utility library, which is why all tests must pass, until the testing is deemed as
-passed.
-
-The severity rating of the bugs from the least critical to the most critical is 
+The following severity rating of the bugs is utilized, listed from the least critical to the most critical:
 
 - minor
 - medium
@@ -47,7 +41,9 @@ The severity rating of the bugs from the least critical to the most critical is
 - Add a description of your tests and GitHub Actions workflow.
 - Include instructions on how to run your unit tests and generate coverage report locally.
 
-
+This section describes the testing process. First the files under testing are listed. Second, a guide is provided 
+for running the tests and creating a coverage report locally. Third, the used CI pipeline and overalls intergration 
+is explained. Finally, a list of bugs are reported.
 
 ## Description of the tests
 
@@ -65,6 +61,13 @@ Unit test were made using **Jest** JavaScript Testing Framework. Jest was select
 - words.js
 
 More in-depth reasoning for these selections can be found from the test_plan.md file. The tests consist of ten test suites corresponding to each of the selected files. Total amount of unit tests written was 25. Tests can be found from the **tests** folder in the project root. Tests are named using the convention: filename.test.js, where the filename is the utility library file under testing. The individual tests are pretty straightforward in of themselves. The functions are given predefined inputs (test_plan.md) and the function outputs are compared to the expected output. If output matches the expected output the test passes. If the function returns something unexpeted or there are errors the test fails.
+
+### Updated tests
+
+A few changes are made to the tests since the test plan. Regarding the utility library file words.js, there were a 
+few misunderstandings of how the function should work. The updated tests are listed below.
+
+- List the new tests
 
 ## Running the tests locally
 
@@ -112,7 +115,7 @@ which runs the Jest unit tests with coverage and coveralls. Then the work flow p
 
 The picture below shows GitHub Actions workflow running the tests on push event.
 
-![GitHub Actions](github_actions.png)
+![GitHub Actions](/github_actions.png)
 
 From the [Coveralls report](https://coveralls.io/github/petrikreus/comp-se-200-assignment?branch=main) you can view the test coverage information.
 
@@ -146,13 +149,17 @@ From the [Coveralls report](https://coveralls.io/github/petrikreus/comp-se-200-a
 - Estimate the test coverage. Was the library "fully tested"? How about the E-Commerce application? Is there a need
   for further tests?
 
-
+The complete bug report is in the Excel file which can be found as an attachment.
+[Bug report](/comp-se-200-assignment-Bug-Report.xlsx)
 
 # References
 
 - List of any and all references used in the document. Add URL links in references (as opposed to inline links within
   the text).
-- [Building and testing Node.js](https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs)
-- [Coveralls GitHub Action](https://github.com/marketplace/actions/coveralls-github-action)
-- [Jest](https://jestjs.io/docs/getting-started)
+
+[Building and testing Node.js](https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs)
+
+[Coveralls GitHub Action](https://github.com/marketplace/actions/coveralls-github-action)
+
+[Jest](https://jestjs.io/docs/getting-started)
 
