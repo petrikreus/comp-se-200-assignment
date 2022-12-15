@@ -62,10 +62,9 @@ Unit test were made using **Jest** JavaScript Testing Framework. Jest was select
 
 More in-depth reasoning for these selections can be found from the test_plan.md file. The tests consist of ten test suites corresponding to each of the selected files. Total amount of unit tests written was 25. Tests can be found from the **tests** folder in the project root. Tests are named using the convention: filename.test.js, where the filename is the utility library file under testing. The individual tests are pretty straightforward in of themselves. The functions are given predefined inputs (test_plan.md) and the function outputs are compared to the expected output. If output matches the expected output the test passes. If the function returns something unexpeted or there are errors the test fails.
 
-### Updated tests
-
 A few changes are made to the tests since the test plan. Regarding the utility library file words.js, there were a 
-few misunderstandings of how the function should work. The updated tests are listed below.
+few misunderstandings of how the function should work. A comparison of the original test and the updated tests can 
+be viewed below.
 
 - List the new tests
 
@@ -79,9 +78,9 @@ $   npm install
 You can run the unit tests without coverage in the terminal with the command:
 
 ```
-$   npm run test
+$   npm test
 ```
-You can run the tests with coverage with the command:
+You can run the tests with coverage report using the command:
 
 ```
 $   npm run test:coverage
