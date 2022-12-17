@@ -17,8 +17,7 @@
 
 This documents contains a report of the testing process for the utility library of the front-end of the E-Commerce
 Store application. The aim of this document is to give a thorough description of what was tested, how the tests were
-run and what were the results. Additionally, some things were missing from the plan and are described here for the
-sake of clarity.
+run and what were the results.
 
 The report begins with a description of the target of the testing and a list of issue categorization in Section 2.
 Next, section 3 gives an overview of the tests and the GitHub Actions workflow, in addition to instructions of how
@@ -28,7 +27,7 @@ to run the tests. Finally, section 4 provides our findings and conclusion of the
 
 The target of the testing was to test the most critical parts of the utility library. The files chosen for the tests 
 are estimated as essential for the front end application using the utility library, which is why all tests must pass, 
-until the testing can be deemed as passed as a whole.
+until the testing can be deemed passed as a whole.
 
 The following severity rating of the bugs is utilized, listed from the least critical to the most critical:
 
